@@ -27,7 +27,6 @@ void swarm(){
       }
 
       // SWARM LEADER REACTION ---------------------------
-
       if (followLeader)
       {
         float distance = dist (leader.getLocation().x, leader.getLocation().y, m.getLocation().x, m.getLocation().y);
@@ -65,4 +64,24 @@ void leaderMovement(){
     leader.checkEdges();
     leader.display();
   }
+}
+
+void changeSpeed(float speed){
+  int n = bouncers.size();  
+  for (int i=0; i<n; i++){
+    bouncers.get(i).speed = speed;
+    bouncers.get(i).SPEED = speed;
+  }
+}
+
+void hotterSpeed(){
+  changeSpeed(8);
+}
+
+void turnBackSpeed(){
+  changeSpeed(6);
+}
+
+void changeBackColor(){
+  
 }

@@ -36,7 +36,7 @@ int bewegungsModus = 5;
 void setup ()
 {
 
-  setupSerial();
+  //setupSerial();
   size (600, 400);
 
   bouncers = new ArrayList ();
@@ -75,15 +75,7 @@ color back = #e9e9e9;
 void draw ()
 {
   background (back);
-  if (myPort!=null && myPort.available()>0){       
-   val = myPort.readString();
-   if (val.length() == 2){
-    int intVal = Integer.parseInt(val); 
-    intVal = 154 + 8*(intVal - 20);
-    println(intVal);
-    back = color(intVal, intVal, intVal);
-   }  
-  }
+  temperatureReceiver();
   
   swarm();
 
@@ -104,4 +96,6 @@ void keyPressed ()
     bewegungsModus++;
     if (bewegungsModus > 5) bewegungsModus = 0;
   }
+  if (key=='1') hotterSpeed();
+  if (key=='0') turnBackSpeed();
 } 
