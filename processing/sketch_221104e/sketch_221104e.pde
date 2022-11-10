@@ -14,8 +14,7 @@ import processing.serial.*;
  vimeo: https://vimeo.com/dianalange/videos
       
  -----------------------------------*/
-Serial myPort; // create object from Serial class
-String val; // data rec'd from the Serial port
+
 
 ArrayList <Mover> bouncers;
 
@@ -36,8 +35,8 @@ int bewegungsModus = 5;
 
 void setup ()
 {
-  myPort = new Serial(this,"COM6", 9600);
 
+  setupSerial();
   size (600, 400);
 
   bouncers = new ArrayList ();
@@ -62,22 +61,21 @@ void setup ()
 
 }
 
-void distancePrint(){               // Here's where my code is to get the distance, via Serial, and will insert the code to make this the
-  if (myPort.available()>0){       
-   val = myPort.readString();
-   if (val.length() == 2){
-    int intVal = Integer.parseInt(val); 
-   }  
+Serial myPort; // create object from Serial class
+String val; // data rec'd from the Serial port
+void setupSerial(){
+  printArray(Serial.list());
+  String[] serialArray = Serial.list();
+  if (serialArray.length > 1 && serialArray[1].equals("COM6")){
+    myPort = new Serial(this, serialArray[1], 9600); // COM6 
   }
-  // float mapVal = map(intVal, 0, 255, 0, height);
-  // println(mapVal);
 }
 
 color back = #e9e9e9;
 void draw ()
 {
   background (back);
-  if (myPort.available()>0){       
+  if (myPort!=null && myPort.available()>0){       
    val = myPort.readString();
    if (val.length() == 2){
     int intVal = Integer.parseInt(val); 
