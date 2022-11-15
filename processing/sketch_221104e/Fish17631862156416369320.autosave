@@ -17,7 +17,7 @@ class Fish
     {
       location[i] = location[0].get ();
     }
-    ellipseSize = random (6, 20);1
+    ellipseSize = random (6, 20);
   }
 
   // GET ------------------------------
@@ -54,20 +54,20 @@ class Fish
   {
     int colorDice = (int) random (4);
 
-    if (colorDice == 0) c1 = color(180, 180, 180);
-    else if (colorDice == 1) c1 = color(160, 160, 160);
-    else if (colorDice == 2) c1 = color(140, 140, 140);
-    else c1 = color(110, 110, 110);
+    if (colorDice == 0) c1 = color(180, 180, 180, 150);
+    else if (colorDice == 1) c1 = color(160, 160, 160, 150);
+    else if (colorDice == 2) c1 = color(140, 140, 140, 150);
+    else c1 = color(110, 110, 110, 150);
 
     float dice = random (100);
     if (dice < 25)
     {
       colorDice = (int) random (4);
 
-      if (colorDice == 0) c2 =  color(220, 220, 220);
-      else if (colorDice == 1) c2 =  color(240, 240, 240);
-      else if (colorDice == 2) c2 =  color(200, 200, 200);
-      else c2 = color(110, 110, 110);
+      if (colorDice == 0) c2 =  color(220, 220, 220, 150);
+      else if (colorDice == 1) c2 =  color(240, 240, 240, 150);
+      else if (colorDice == 2) c2 =  color(200, 200, 200, 150);
+      else c2 = color(110, 110, 110, 150);
     }
     else c2 = c1;
   }

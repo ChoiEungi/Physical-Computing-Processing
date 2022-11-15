@@ -91,13 +91,15 @@ class Mover
     }
     else if (mode == 2) // steer
     {
-      steer (mouseX, mouseY);
+      // steer (mouseX, mouseY);
+      steer (X_SIZE/2, Y_SIZE/2);
       move();
     }
     else if (mode == 3) // seek
     {
       speed = SPEED * 0.7;
-      seek (mouseX, mouseY);
+      // seek (mouseX, mouseY);
+      seek (X_SIZE/2, Y_SIZE/2);
       move();
     }
     else // radial

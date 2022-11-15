@@ -22,22 +22,27 @@ Mover predator;
 Mover leader;
 int predatorvictim = 0;
 
-boolean followLeader = true;
-boolean hidefromPredator = true;
+boolean followLeader = false;
+boolean hidefromPredator = false;
 
 int bewegungsModus = 5;
 // 0 = BOUNCE
 // 1 = NOISE
-// 2 = STEER
-// 3 = SEEK
+// 2 = STEER: 
+// 3 = SEEK  cohension specific point
 // 4 = RADIAL
 // 5 = FLOCK
+
+int X_SIZE = 1000;
+int Y_SIZE = 800;
 
 void setup ()
 {
 
   //setupSerial();
-  size (600, 400);
+  setup_mv_arr();
+  size(1000, 800);
+
 
   bouncers = new ArrayList ();
   predator = new Mover ();
@@ -71,10 +76,13 @@ void setupSerial(){
   }
 }
 
-color back = #e9e9e9;
+color back = #e9e9e9; //e9 is same with 233
 void draw ()
 {
   background (back);
+  change_to_bright();
+  change_to_dark();
+
   temperatureReceiver();
   
   swarm();
@@ -96,6 +104,15 @@ void keyPressed ()
     bewegungsModus++;
     if (bewegungsModus > 5) bewegungsModus = 0;
   }
-  if (key=='1') hotterSpeed();
-  if (key=='0') turnBackSpeed();
+  if (key=='1') {
+    // hotterSpeed();
+    bewegungsModus = 2;
+    flag = 1;
+  }
+    
+  if (key=='0') {
+    turnBackSpeed();
+    bewegungsModus = 3;
+    flag = 2;
+  }
 } 
