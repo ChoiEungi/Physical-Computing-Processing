@@ -17,7 +17,7 @@ class Fish
     {
       location[i] = location[0].get ();
     }
-    ellipseSize = random (6, 20);1
+    ellipseSize = random (6, 20);
   }
 
   // GET ------------------------------
