@@ -80,8 +80,8 @@ color back = #e9e9e9; //e9 is same with 233
 void draw ()
 {
   background (back);
-  change_to_bright();
   change_to_dark();
+  change_to_bright();
 
   temperatureReceiver();
   

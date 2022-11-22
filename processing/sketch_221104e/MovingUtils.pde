@@ -82,8 +82,9 @@ void turnBackSpeed(){
   changeSpeed(6);
 }
 
-float[] sc = {255, 255, 255};
-float[] ec = {0, 0, 0};
+
+float[] ec = {255, 255, 255};
+float[] sc = {0, 0, 0};
 float[][] color_to_show = new float[60][3];
 
 void setup_mv_arr(){
@@ -91,7 +92,7 @@ void setup_mv_arr(){
     float c = sc[i];
     for(int j=0; j<60; j++){
       color_to_show[j][i] = c;
-      c += (ec[i]-sc[i] / 60);
+      c -= (sc[i] - ec[i] / 60);
     }
   }
 }
@@ -102,13 +103,13 @@ int c_idx =  0;
 void change_to_bright(){
   int TO_WHITE_FLAG = 1;
   background(color_to_show[c_idx][0], color_to_show[c_idx][1], color_to_show[c_idx][2]);
-  if (c_idx==0 && flag ==TO_WHITE_FLAG) flag = 0;
-  if (flag == TO_WHITE_FLAG) c_idx--;
+  if (c_idx==59 && flag ==TO_WHITE_FLAG) flag = 0;
+  if (flag == TO_WHITE_FLAG) c_idx++;
 }
 
 void change_to_dark(){
   int TO_DARK_FLAG = 2;
   background(color_to_show[c_idx][0], color_to_show[c_idx][1], color_to_show[c_idx][2]);
-  if (c_idx ==59 && flag==TO_DARK_FLAG) flag = 0;
-  if (flag == TO_DARK_FLAG) c_idx++;
+  if (c_idx ==0 && flag==TO_DARK_FLAG) flag = 0;
+  if (flag == TO_DARK_FLAG) c_idx--;
   }
