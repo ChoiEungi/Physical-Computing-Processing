@@ -33,15 +33,17 @@ int bewegungsModus = 5;
 // 4 = RADIAL
 // 5 = FLOCK
 
-int X_SIZE = 1000;
-int Y_SIZE = 800;
-
+int X_SIZE;
+int Y_SIZE;
 void setup ()
 {
 
+  X_SIZE = displayWidth/2;
+  Y_SIZE = displayHeight;
+  fullScreen();
+  
   //setupSerial();
   setup_mv_arr();
-  size(1000, 800);
 
 
   bouncers = new ArrayList ();
