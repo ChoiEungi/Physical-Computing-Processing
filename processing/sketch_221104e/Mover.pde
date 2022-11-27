@@ -28,12 +28,12 @@ class Mover
   void setRandomValues ()
   {
     f = new Fish (random (width), random (height));
-    f.ellipseSize = random (4, 15);
+    f.ellipseSize = random (10, 20);
 
     float angle = random (TWO_PI);
     direction = new PVector (cos (angle), sin (angle));
 
-    speed = random (4, 7);
+    speed = random (5.5, 8);
     SPEED = speed;
     noiseScale = 80;
     noiseStrength = 1;

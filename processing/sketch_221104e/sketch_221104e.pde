@@ -1,4 +1,5 @@
 import processing.serial.*;
+import processing.io.*;
 
 /*----------------------------------
        
@@ -59,7 +60,7 @@ void setup ()
   leader.speed = 6;
   leader.SPEED = 6;
 
-  for (int i = 0; i < 180; i++)
+  for (int i = 0; i < 150; i++)
   {
     Mover newMover = new Mover();
     bouncers.add (newMover);
@@ -107,13 +108,12 @@ void keyPressed ()
     if (bewegungsModus > 5) bewegungsModus = 0;
   }
   if (key=='1') {
-    // hotterSpeed();
     bewegungsModus = 2;
     flag = 1;
+    gather_left();
   }
     
   if (key=='0') {
-    turnBackSpeed();
     bewegungsModus = 3;
     flag = 2;
   }

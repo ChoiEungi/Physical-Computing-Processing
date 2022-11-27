@@ -10,12 +10,12 @@ class Fish
   {
     setRandomColor ();
 
-    location = new PVector [round (random (8, 15))];
+    location = new PVector [round (random (12, 18))];
     location[0] = new PVector (x, y);
 
     for (int i = 1; i < location.length; i++)
     {
-      location[i] = location[0].get ();
+      location[i] = location[0].get();
     }
     ellipseSize = random (6, 20);
   }
