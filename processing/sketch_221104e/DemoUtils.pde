@@ -29,5 +29,6 @@ void back_to_origin(){
   delay(10000);
   bewegungsModus = 5;
   thread_lock=false;
+  unlcok_sound();
   // turn off interrupt
 }

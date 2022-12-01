@@ -37,6 +37,11 @@ int X_SIZE;
 int Y_SIZE;
 void setup ()
 {
+  input = new AudioIn(this, 0);
+  input.start();
+  loudness = new Amplitude(this);
+  loudness.input(input);
+
 
   X_SIZE = displayWidth/2;
   Y_SIZE = displayHeight;
@@ -94,6 +99,8 @@ void draw ()
 
   // LEADER  MOVEMENT ---------------------
   leaderMovement();
+  
+  audioUtils();
 }
 
 
